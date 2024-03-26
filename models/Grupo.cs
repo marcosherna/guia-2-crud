@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,5 +12,11 @@ namespace guia_2.models
         public string IdProfesor { get; set; } = "";
         public int Ciclo { get; set; } 
         public int Anio { get; set; }
+
+        [AllowNull]
+        public Materia materia { get; set; }
+
+        [AllowNull]
+        public Profesor profesor {get;  set;}
     }
 }
