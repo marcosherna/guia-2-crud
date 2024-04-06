@@ -23,7 +23,7 @@ namespace guia_2.repositories
 
         public override List<Grupo> Get(){
             List<Grupo> grupos = base.Get();
-            grupos.ForEach( grupo => {
+            grupos.ForEach( grupo => {  
                 if(grupo.IdMateria != ""){
                     grupo.materia = base.context.Get<Materia>()
                         .FirstOrDefault( materia => materia.Id == grupo.IdMateria);
@@ -35,13 +35,13 @@ namespace guia_2.repositories
                 }
             });
 
-            return new List<Grupo>();
+            return grupos;
         }
  
         public override Grupo GetById(string id) {
             Grupo grupo = base.GetById(id);
             if(grupo != null) {
-                if(grupo.IdMateria != ""){
+                if(grupo.IdMateria != ""){ 
                     grupo.materia = base.context.Get<Materia>()
                         .FirstOrDefault( materia => materia.Id == grupo.IdMateria);
                 }

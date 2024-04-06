@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<MemoryContext, MemoryContext>();
 builder.Services.AddSingleton<IRepository<Profesor>, ProfesorRepository>();
 builder.Services.AddSingleton<IRepository<Materia>, MateriaRepository>();
+builder.Services.AddSingleton<IRepository<Grupo>, GrupoRepository>();
 
 var app = builder.Build();
 
