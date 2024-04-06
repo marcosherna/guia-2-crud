@@ -12,6 +12,8 @@ namespace guia_2.models
         public string IdCarrera { get; set; } = "";
         public string IdMateria { get; set; } ="";
         public string IdProfesor { get; set; } = "";
+        
+        [Required(ErrorMessage = "El campo es requerido")]
         public int Ciclo { get; set; } 
         public int Anio { get; set; }   
         [JsonIgnore]
