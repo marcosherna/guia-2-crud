@@ -68,5 +68,31 @@ namespace guia_2.Controllers
             catch (System.Exception) {}
             return result;
         }
+
+        [HttpGet("{id}/Materia")] 
+        public ActionResult<Materia> GetMateria(string id) {
+            var result = StatusCode(500);
+            try {
+                Grupo grupo = this.repository.GetById(id);
+                if(grupo.materia != null) {
+                    return grupo.materia;
+                }
+            }
+            catch (System.Exception) {}
+            return result;
+        }
+
+        [HttpGet("{id}/Profesor")] 
+        public ActionResult<Profesor> GetProfesor(string id) {
+            var result = StatusCode(500);
+            try {
+                Grupo grupo = this.repository.GetById(id);
+                if(grupo.profesor != null) {
+                    return grupo.profesor;
+                }
+            }
+            catch (System.Exception) {}
+            return result;
+        }
     }
 }
