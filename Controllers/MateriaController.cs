@@ -26,6 +26,10 @@ namespace guia_2.Controllers
         public ActionResult Add([FromBody] Materia materia){
             var result = StatusCode(500);
             try {
+                if (!ModelState.IsValid){
+                    return BadRequest(ModelState);
+                }
+                
                 result = this.repository.Add(materia) ? 
                     Ok() :  BadRequest(); 
             }
