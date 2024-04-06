@@ -9,15 +9,16 @@ namespace guia_2.models
     public class Profesor: Entity{
         
         [Required(ErrorMessage = "El campo es requerido")]  
-        [MaxLength(length: 20, ErrorMessage = "El campos solo admite un numero maximo de caracteres de 20")]
+        [MaxLength(length: 50, ErrorMessage = "maximo 50 caracters")]
         public string Nombre { get; set; } = "";
 
         [Required(ErrorMessage = "El campo es requerido")]  
-        [MaxLength(length: 20, ErrorMessage = "El campos solo admite un numero maximo de caracteres de 20")]
+        [MaxLength(length: 50, ErrorMessage = "maximo 50 caracters")]
         public string Apellido { get; set; }= ""; 
 
         [Required(ErrorMessage = "El campo es requerido")]  
         [EmailAddress(ErrorMessage = "El campo debe ser valido como email")]
+        [MaxLength(length:254, ErrorMessage = "maximo 254 caracters")]
         public string Email { get; set; } = ""; 
     }
 }
