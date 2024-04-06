@@ -9,7 +9,7 @@ namespace guia_2.models
     public class Materia : Entity{
         
         [Required(ErrorMessage = "El campo es requerido")]
-        [MaxLength(length:15, ErrorMessage = "Solo admite un numero maximo de caracteres de 15")]
+        [MaxLength(length:50, ErrorMessage = "Maximo 50 caracteres")]
         public string Nombre { get; set; } = "";
     }
 }
