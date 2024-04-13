@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 namespace guia_2.models
 {
     public class Grupo: Entity {
-        public string IdCarrera { get; set; } = "";
-        public string IdMateria { get; set; } ="";
-        public string IdProfesor { get; set; } = "";
+        public int IdCarrera { get; set; }
+        public int IdMateria { get; set; } 
+        public int IdProfesor { get; set; }
         public int Ciclo { get; set; } 
         public int Anio { get; set; }   
         [JsonIgnore]
