@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qj4yU45bTlpPqTQcbA7Ld8gb5i+54xjqqAkYPzpsbJg8+rxbPDa12OYZ08FppyVoHz0k3l6stCAsLrtjWwwDEg==",
+  "dgSpecHash": "bKlBDjVAxf+85HaIPVWSi7hvwLlnmwsV1Xe9weYFBW9Nrs2aXE0/Fo0z5lrwQH2tNOHHd/VIC9u72AEkZsHjsw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MINEDUCYT\\Desktop\\proyecto\\guia-2-crud\\guia-2.csproj",
   "expectedPackageFiles": [
@@ -11,5 +11,12 @@
     "C:\\Users\\MINEDUCYT\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "C:\\Users\\MINEDUCYT\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Host desconocido. (api.nuget.org:443)"
+    }
+  ]
 }
