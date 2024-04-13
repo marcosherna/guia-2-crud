@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace guia_2.models
 {
-    public class Profesor: Entity{
+    public class Estudiante:Entity{
 
         [Required(ErrorMessage = "El campo es requerido")]
         [MaxLength(length: 50, ErrorMessage = "Maximo 50 caracteres")]
@@ -14,10 +14,16 @@ namespace guia_2.models
 
         [Required(ErrorMessage = "El campo es requerido")]
         [MaxLength(length: 50, ErrorMessage = "Maximo 50 caracteres")]
-        public string Apellido { get; set; }= ""; 
+        public string Apellido { get; set; } = "";
+
+        [Required(ErrorMessage = "El campo es requerido")]
+        [MinLength(length: 12, ErrorMessage = "Minimo 12 caracteres")]
+        [MaxLength(length: 12, ErrorMessage = "Maximo 12 caracteres")]
+        public string Codigo { get; set; } = "";
 
         [Required(ErrorMessage = "El campo es requerido")]
         [MaxLength(length: 254, ErrorMessage = "Maximo 254 caracteres")]
-        public string Email { get; set; } = ""; 
+        [EmailAddress(ErrorMessage ="El formato no es valido")]
+        public string Correo { get; set; } = "";
     }
 }

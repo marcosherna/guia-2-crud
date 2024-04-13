@@ -13,6 +13,8 @@ namespace guia_2.Extensions
             services.AddScoped<IRepository<Materia> ,MateriaRepository>();
             services.AddScoped<IRepository<Profesor>,ProfesorRepository>();
             services.AddScoped<IRepository<Grupo>,GrupoRepository>();
+            services.AddScoped<IRepository<Estudiante>,EstudianteRepository>();
+            services.AddScoped<IRepository<Carrera>,CarreraRepository>();
         }
     }
 }

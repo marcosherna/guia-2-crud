@@ -10,8 +10,7 @@ namespace guia_2.models
         
         public DbMemoryContext(DbContextOptions<DbMemoryContext> options) : base(options) {
 
-        }
-
+        } 
         protected override void OnModelCreating(ModelBuilder modelBuilder) { 
             modelBuilder.Entity<Profesor>().HasData(
                 new Profesor { Id = 1, Nombre = "Profesor 1", Apellido = "Apellido 1" },
@@ -38,5 +37,6 @@ namespace guia_2.models
         public DbSet<Grupo> grupos { get; set; }
         public DbSet<Profesor> profesores { get; set; }        
         public DbSet<Materia> materias { get; set; }
+        public DbSet<Estudiante> estudiantes { get; set ; }
     }
 }
