@@ -428,19 +428,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC35_A21\\.nuget\\packages\\": {}
+    "C:\\Users\\MINEDUCYT\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC35_A21\\Desktop\\guia-2-crud\\guia-2.csproj",
+      "projectUniqueName": "C:\\Users\\MINEDUCYT\\Desktop\\proyecto\\guia-2-crud\\guia-2.csproj",
       "projectName": "guia-2",
-      "projectPath": "C:\\Users\\PC35_A21\\Desktop\\guia-2-crud\\guia-2.csproj",
-      "packagesPath": "C:\\Users\\PC35_A21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC35_A21\\Desktop\\guia-2-crud\\obj\\",
+      "projectPath": "C:\\Users\\MINEDUCYT\\Desktop\\proyecto\\guia-2-crud\\guia-2.csproj",
+      "packagesPath": "C:\\Users\\MINEDUCYT\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MINEDUCYT\\Desktop\\proyecto\\guia-2-crud\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\PC35_A21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MINEDUCYT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -495,7 +500,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
