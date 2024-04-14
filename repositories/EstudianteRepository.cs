@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace guia_2.repositories
 {
     public class EstudianteRepository : BaseRepository<Estudiante> {
-        public EstudianteRepository(DbMemoryContext context) 
+        public EstudianteRepository(DbContext context) 
             : base(context) {
         }
     }

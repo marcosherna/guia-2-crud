@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); 
 
-builder.Services.AddDbContext<DbMemoryContext>();
+builder.Services.AddDbContext<DbContext, DbMemoryContext>();
 
  builder.Services.ConfigureRepositories();
 

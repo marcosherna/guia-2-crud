@@ -37,6 +37,7 @@ namespace guia_2.models
         public DbSet<Grupo> grupos { get; set; }
         public DbSet<Profesor> profesores { get; set; }        
         public DbSet<Materia> materias { get; set; }
-        public DbSet<Estudiante> estudiantes { get; set ; }
+        public DbSet<Estudiante> estudiantes { get; set ; } 
+        public DbSet<Carrera> carreras { get; set; }
     }
 }

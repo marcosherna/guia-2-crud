@@ -8,14 +8,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace guia_2.repositories
 {
-    public class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : Entity, new() {
+    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : Entity, new() {
 
         protected readonly DbContext _context;
         public BaseRepository(DbContext context) {
             _context = context;
         }
 
-        public async Task<TEntity> Add(TEntity entity) {
+        public virtual async Task<TEntity> Add(TEntity entity) {
             try {
                 _context.Set<TEntity>().Add(entity);
                 var result = await _context.SaveChangesAsync();
@@ -28,7 +28,7 @@ namespace guia_2.repositories
             }
         }
 
-        public async Task<bool> Delete(int id) {
+        public virtual async Task<bool> Delete(int id) {
             try {
                 var entity = _context.Set<TEntity>().FirstOrDefault(x => x.Id == id);
                 if(entity == null) {
@@ -43,11 +43,11 @@ namespace guia_2.repositories
             } 
         }
 
-        public async Task<List<TEntity>> Get() {
+        public virtual async Task<List<TEntity>> Get() {
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity> GetById(int id) 
+        public virtual async Task<TEntity> GetById(int id) 
         {
             try  {
                 return await _context.Set<TEntity>()
@@ -57,7 +57,7 @@ namespace guia_2.repositories
             }
         }
 
-        public async Task<bool> Update(int id, TEntity entity) {
+        public virtual async Task<bool> Update(int id, TEntity entity) {
             try {
                 entity.Id = id;
                 _context.Set<TEntity>().Update(entity);
