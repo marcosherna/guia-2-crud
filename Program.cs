@@ -1,3 +1,4 @@
+using guia_2.database;
 using guia_2.Extensions;
 using guia_2.interfaces;
 using guia_2.models;
@@ -13,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(); 
 
-builder.Services.AddDbContext<DbContext, DbMemoryContext>();
+builder.Services.AddDbContext<DbContext, MysqlContext>();
 
  builder.Services.ConfigureRepositories();
 

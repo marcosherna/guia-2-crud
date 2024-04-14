@@ -25,9 +25,9 @@ dotnet build
 Este proyecto utiliza Entity Framework Core para manejar las migraciones de la base de datos. Para aplicar las migraciones a su base de datos, use el siguiente comando:
 
 ```bash
-dotnet ef database update
+dotnet ef database update --context MysqlContext
 
-dotnet ef migrations add [NombreDeLaMigracion]
+dotnet ef migrations add [NombreDeLaMigracion] --context MysqlContext
 ```
 
 Para ejecutar la aplicación, use:
