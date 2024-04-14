@@ -26,7 +26,10 @@ Este proyecto utiliza Entity Framework Core para manejar las migraciones de la b
 
 ```bash
 dotnet ef database update --context MysqlContext
+```
 
+Para agregar nuevas migraciones
+```bash
 dotnet ef migrations add [NombreDeLaMigracion] --context MysqlContext
 ```
 
