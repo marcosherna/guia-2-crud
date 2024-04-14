@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace guia_2.models
 {
-    public class Carrera : Entity {
-        
-        [Required(ErrorMessage = "El campo es requerido")]
-        [MaxLength(length:3, ErrorMessage = "maximo 3 caracteres")]
-        public string Codigo { get; set; } = "";
+    public class Carrera: Entity {
 
         [Required(ErrorMessage = "El campo es requerido")]
-        [MaxLength(length:40, ErrorMessage = "maximo 40 caracteres")]
-        public string Nombre { get; set; } = "";
+        [MaxLength(length: 3, ErrorMessage = "Maximo 3 caracteres")]
+        public string Codigo { get; set; } = "";    
+
+        [Required(ErrorMessage = "El campo es requerido")]
+        [MaxLength(length: 40, ErrorMessage = "Maximo 40 caracteres")]
+        public string Nombre { get; set; } = "";    
     }
 }

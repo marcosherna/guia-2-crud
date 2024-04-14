@@ -10,7 +10,8 @@ namespace guia_2.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CarreraController : ControllerBase {
+    public class CarreraController : ControllerBase
+    {
         private readonly IRepository<Carrera> repository;
 
         public CarreraController(IRepository<Carrera> repository) {
@@ -18,29 +19,26 @@ namespace guia_2.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Carrera>> Get(){
-            return this.repository.Get();
+        public async Task<ActionResult<List<Carrera>>> Get(){
+            return  await this.repository.Get();
         }
 
         [HttpPost]
-        public ActionResult Add([FromBody] Carrera Carrera){
+        public async Task<ActionResult<Carrera>> Add([FromBody] Carrera Carrera){
             var result = StatusCode(500);
-            try {
-                if (!ModelState.IsValid){
-                    return BadRequest(ModelState);
-                }
-                
-                result = this.repository.Add(Carrera) ? 
-                    Ok() :  BadRequest(); 
+            try { 
+                Carrera _Carrera = await this.repository.Add(Carrera);
+                return CreatedAtAction(nameof(GetById), new { id = _Carrera.Id }, _Carrera);
             }
-            catch (System.Exception) {}
-            return result;
+            catch (System.Exception) {
+                return result;
+            } 
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Carrera> GetById(string id){ 
+        public async Task<ActionResult<Carrera>> GetById(int id){ 
             try {
-                Carrera Carrera = this.repository.GetById(id);
+                Carrera Carrera = await this.repository.GetById(id);
                 return Carrera != null ? 
                     Carrera :  NotFound(); 
             }
@@ -50,10 +48,10 @@ namespace guia_2.Controllers
         }
 
         [HttpDelete("{id}")] 
-        public ActionResult Delete(string id) {
+        public async Task<ActionResult> Delete(int id) {
             var result = StatusCode(500);
             try {
-                result = this.repository.Delete(id) ? 
+                result = await this.repository.Delete(id) ? 
                     NoContent() :  BadRequest(); 
             }
             catch (System.Exception) {}
@@ -61,10 +59,10 @@ namespace guia_2.Controllers
         }
 
         [HttpPut("{id}")] 
-        public ActionResult Update(string id, [FromBody] Carrera Carrera) {
+        public async Task<ActionResult> Update(int id, [FromBody] Carrera Carrera) {
             var result = StatusCode(500);
             try {
-                result = this.repository.Update(id, Carrera) ? 
+                result = await this.repository.Update(id, Carrera) ? 
                     NoContent() :  BadRequest(); 
             }
             catch (System.Exception) {}

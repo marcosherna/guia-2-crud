@@ -16,29 +16,30 @@ namespace guia_2.Controllers
         private IRepository<Grupo> repository; 
         
         public GrupoController(IRepository<Grupo> repository) {
-            this.repository = repository as MemoryBaseRepository<Grupo>;
+            this.repository = repository ;
         }
 
         [HttpGet]
-        public ActionResult<List<Grupo>> Get(){
-            return this.repository.Get();
+        public async Task<ActionResult<List<Grupo>>> Get(){
+            return  await this.repository.Get();
         }
 
         [HttpPost]
-        public ActionResult Add([FromBody] Grupo Grupo){
+        public async Task<ActionResult<Grupo>> Add([FromBody] Grupo Grupo){
             var result = StatusCode(500);
-            try {
-                result = this.repository.Add(Grupo) ? 
-                    Ok() :  BadRequest(); 
+            try { 
+                Grupo _Grupo = await this.repository.Add(Grupo);
+                return CreatedAtAction(nameof(GetById), new { id = _Grupo.Id }, _Grupo);
             }
-            catch (System.Exception) {}
-            return result;
+            catch (System.Exception) {
+                return result;
+            } 
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Grupo> GetById(string id){ 
+        public async Task<ActionResult<Grupo>> GetById(int id){ 
             try {
-                Grupo Grupo = this.repository.GetById(id);
+                Grupo Grupo = await this.repository.GetById(id);
                 return Grupo != null ? 
                     Grupo :  NotFound(); 
             }
@@ -48,10 +49,10 @@ namespace guia_2.Controllers
         }
 
         [HttpDelete("{id}")] 
-        public ActionResult Delete(string id) {
+        public async Task<ActionResult> Delete(int id) {
             var result = StatusCode(500);
             try {
-                result = this.repository.Delete(id) ? 
+                result = await this.repository.Delete(id) ? 
                     NoContent() :  BadRequest(); 
             }
             catch (System.Exception) {}
@@ -59,37 +60,11 @@ namespace guia_2.Controllers
         }
 
         [HttpPut("{id}")] 
-        public ActionResult Update(string id, [FromBody] Grupo Grupo) {
+        public async Task<ActionResult> Update(int id, [FromBody] Grupo Grupo) {
             var result = StatusCode(500);
             try {
-                result = this.repository.Update(id, Grupo) ? 
+                result = await this.repository.Update(id, Grupo) ? 
                     NoContent() :  BadRequest(); 
-            }
-            catch (System.Exception) {}
-            return result;
-        }
-
-        [HttpGet("{id}/Materia")] 
-        public ActionResult<Materia> GetMateria(string id) {
-            var result = StatusCode(500);
-            try {
-                Grupo grupo = this.repository.GetById(id);
-                if(grupo.materia != null) {
-                    return grupo.materia;
-                }
-            }
-            catch (System.Exception) {}
-            return result;
-        }
-
-        [HttpGet("{id}/Profesor")] 
-        public ActionResult<Profesor> GetProfesor(string id) {
-            var result = StatusCode(500);
-            try {
-                Grupo grupo = this.repository.GetById(id);
-                if(grupo.profesor != null) {
-                    return grupo.profesor;
-                }
             }
             catch (System.Exception) {}
             return result;

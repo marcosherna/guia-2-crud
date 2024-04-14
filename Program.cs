@@ -1,7 +1,9 @@
 using guia_2.database;
+using guia_2.Extensions;
 using guia_2.interfaces;
 using guia_2.models;
 using guia_2.repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,12 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<MemoryContext, MemoryContext>();
-builder.Services.AddSingleton<IRepository<Profesor>, ProfesorRepository>();
-builder.Services.AddSingleton<IRepository<Materia>, MateriaRepository>();
-builder.Services.AddSingleton<IRepository<Grupo>, GrupoRepository>();
-builder.Services.AddSingleton<IRepository<Estudiante>, EstudianteRepository>();
+builder.Services.AddSwaggerGen(); 
+
+builder.Services.AddDbContext<DbContext, MysqlContext>();
+
+ builder.Services.ConfigureRepositories();
 
 var app = builder.Build();
 
